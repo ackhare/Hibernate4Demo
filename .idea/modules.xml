@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HibernateResourrces.iml" filepath="$PROJECT_DIR$/.idea/modules/HibernateResourrces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HibernateResourrces_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HibernateResourrces_main.iml" group="HibernateResourrces" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HibernateResourrces_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HibernateResourrces_test.iml" group="HibernateResourrces" />
+    </modules>
+  </component>
+</project>
