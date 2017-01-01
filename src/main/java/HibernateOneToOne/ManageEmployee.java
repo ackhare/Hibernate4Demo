@@ -1,69 +1,95 @@
-package HibernateFirstApplication;
+package HibernateOneToOne;
 
 /**
  * Created by chetan on 1/1/17.
  */
 
-import java.util.List;
-import java.util.Iterator;
+//Many Employee can have one address
 
+
+import ch.qos.logback.classic.Level;
+import org.slf4j.LoggerFactory;
+import java.util.*;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.Logger;
 
 
 public class ManageEmployee {
     private static SessionFactory factory;
-    final static Logger logger = LoggerFactory.getLogger(ManageEmployee.class);
+    final static Logger logger = ((Logger)(LoggerFactory.getLogger(ManageEmployee.class)));
     public static void main(String[] args) {
 
-
+//        logger.setLevel(Level.ERROR);
         try {
-            //TODO why depreceated
+
             factory = new Configuration()
-                    .configure("/HibernateFirstApplication/hibernate.cfg.xml")
-                    .buildSessionFactory();
-            //factory = new Configuration().configure("/HibernateFirstApplication/hibernate.cfg.xml").buildSessionFactory();
+                    .configure("/HibernateOneToOne/hibernate.cfg.xml").buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
             throw new ExceptionInInitializerError(ex);
         }
         ManageEmployee ME = new ManageEmployee();
+//One address is being assigned
+      /* Let us have one address object */
+        Address address1 = ME.addAddress("Kondapur", "Hyderabad", "AP", "532");
 
-      /* Add few employee records in database */
-        Integer empID1 = ME.addEmployee("Zara", "Ali", 1000);
-        Integer empID2 = ME.addEmployee("Daisy", "Das", 5000);
-        Integer empID3 = ME.addEmployee("John", "Paul", 10000);
+      /* Add employee records in the database */
+        Integer empID1 = ME.addEmployee("Manoj", "Kumar", 4000, address1);
+
+      /* Let us have another address object */
+        Address address2 = ME.addAddress("Saharanpur", "Ambehta", "UP", "111");
+
+    /* Add another employee record in the database */
+        Integer empID2 = ME.addEmployee("Dilip", "Kumar", 3000, address2);
 
       /* List down all the employees */
         ME.listEmployees();
 
-      /* Update employee's records */
-      ME.updateEmployee(empID1, 5000);
+      /* Update employee's salary records */
+        ME.updateEmployee(empID1, 5000);
 
-      /* Delete an employee from the database */
-      ME.deleteEmployee(empID2);
-
-      /* List down new list of the employees */
-      ME.listEmployees();
+      /* List down all the employees */
+        ME.listEmployees();
+        factory.close();
     }
 
-    /* Method to CREATE an employee in the database */
-    public Integer addEmployee(String fname, String lname, int salary) {
+    /* Method to add an address record in the database */
+    public Address addAddress(String street, String city,
+                              String state, String zipcode) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        Integer addressID = null;
+        Address address = null;
+        try {
+            tx = session.beginTransaction();
+            address = new Address(street, city, state, zipcode);
+            addressID = (Integer) session.save(address);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return address;
+    }
+
+    /* Method to add an employee record in the database */
+    public Integer addEmployee(String fname, String lname,
+                               int salary, Address address) {
         Session session = factory.openSession();
         Transaction tx = null;
         Integer employeeID = null;
         try {
             tx = session.beginTransaction();
-            Employee employee = new Employee(fname, lname, salary);
+            Employee employee = new Employee(fname, lname, salary, address);
             employeeID = (Integer) session.save(employee);
             tx.commit();
-            logger.info("mmmmmmm");
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
             e.printStackTrace();
@@ -73,7 +99,7 @@ public class ManageEmployee {
         return employeeID;
     }
 
-    /* Method to  READ all the employees */
+    /* Method to list all the employees detail */
     public void listEmployees() {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -86,9 +112,14 @@ public class ManageEmployee {
                 System.out.print("First Name: " + employee.getFirstName());
                 System.out.print("  Last Name: " + employee.getLastName());
                 System.out.println("  Salary: " + employee.getSalary());
+                Address add = employee.getAddress();
+                System.out.println("Address ");
+                System.out.println("\tStreet: " + add.getStreet());
+                System.out.println("\tCity: " + add.getCity());
+                System.out.println("\tState: " + add.getState());
+                System.out.println("\tZipcode: " + add.getZipcode());
             }
             tx.commit();
-
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
             e.printStackTrace();
@@ -97,7 +128,7 @@ public class ManageEmployee {
         }
     }
 
-    /* Method to UPDATE salary for an employee */
+    /* Method to update salary for an employee */
     public void updateEmployee(Integer EmployeeID, int salary) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -107,24 +138,6 @@ public class ManageEmployee {
                     (Employee) session.get(Employee.class, EmployeeID);
             employee.setSalary(salary);
             session.update(employee);
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-
-    /* Method to DELETE an employee from the records */
-    public void deleteEmployee(Integer EmployeeID) {
-        Session session = factory.openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            Employee employee =
-                    (Employee) session.get(Employee.class, EmployeeID);
-            session.delete(employee);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

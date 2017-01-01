@@ -14,7 +14,8 @@ jar {
 dependencies {
 //    compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.1.4.RELEASE'
     compile 'org.hibernate:hibernate-core:4.3.6.Final'
-      compile("log4j:log4j:${log4jVersion}")
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.1.7'
 //    compile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'org.slf4j:slf4j-simple:1.7.7'
     compile 'org.javassist:javassist:3.15.0-GA'

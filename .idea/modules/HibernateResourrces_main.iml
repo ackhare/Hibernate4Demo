@@ -21,6 +21,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:4.3.6.Final" level="project" />
+    <orderEntry type="library" name="Gradle: ch.qos.logback:logback-classic:1.1.7" level="project" />
+    <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.1.7" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-simple:1.7.7" level="project" />
     <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:5.1.31" level="project" />
     <orderEntry type="library" name="Gradle: commons-dbcp:commons-dbcp:1.4" level="project" />
@@ -32,7 +34,7 @@
     <orderEntry type="library" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Gradle: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Gradle: org.jboss:jandex:1.1.0.Final" level="project" />
-    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.7" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.20" level="project" />
     <orderEntry type="library" name="Gradle: commons-pool:commons-pool:1.5.4" level="project" />
     <orderEntry type="library" name="Gradle: xml-apis:xml-apis:1.0.b2" level="project" />
     <orderEntry type="library" name="Gradle: org.javassist:javassist:3.18.1-GA" level="project" />

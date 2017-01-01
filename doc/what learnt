@@ -1,0 +1,16 @@
+session.createQuery("FROM Employee")
+
+An object-oriented representation of a Hibernate query.
+A Query instance is obtained by calling Session.createQuery().
+
+This interface exposes some extra functionality beyond that provided by Session.iterate() and Session.find():
+a particular page of the result set may be selected by calling setMaxResults(), setFirstResult()
+
+named query parameters may be used
+
+the results may be returned as an instance of ScrollableResults
+
+Named query parameters are tokens of the form :name in the query string.
+A value is bound to the integer parameter :foo by calling  setParameter("foo", foo, Hibernate.INTEGER);
+for example. A name may appear multiple times in the query string.  JDBC-style ? parameters are also supported.
+To bind a value to a JDBC-style parameter use a set method that accepts an int positional argument (numbered from zero, contrary to JDBC).  You may not mix and match JDBC-style parameters and named parameters in the same query.  Queries are executed by calling list(), scroll() or iterate(). A query may be re-executed by subsequent invocations. Its lifespan is, however, bounded by the lifespan of the Session that created it.  Implementors are not intended to be threadsafe.
