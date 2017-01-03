@@ -1,0 +1,19 @@
+create database testonetomany
+
+
+create table EMPLOYEE (
+   id INT NOT NULL auto_increment,
+   first_name VARCHAR(20) default NULL,
+   last_name  VARCHAR(20) default NULL,
+   salary     INT  default NULL,
+   PRIMARY KEY (id)
+);
+
+Further, assume each employee can have one or more certificate associated with him/her. So we will store certificate related information in a separate table which has following structure:
+
+create table CERTIFICATE (
+   id INT NOT NULL auto_increment,
+   certificate_name VARCHAR(30) default NULL,
+   employee_id INT default NULL,
+   PRIMARY KEY (id)
+);
