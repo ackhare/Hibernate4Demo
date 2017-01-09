@@ -1,0 +1,4 @@
+in this example whole table of address is mapped into Employee
+It is an alternative to mapping two table approach by collection as in previous examples
+we can control what of x to map in y  in xml
+

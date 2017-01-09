@@ -10,10 +10,10 @@
         <property name="hibernate.connection.driver_class">
             com.mysql.jdbc.Driver
         </property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <!-- Assume test is the database name -->
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost/testmanytomany
+            jdbc:mysql://localhost/testmapMapping
         </property>
         <property name="hibernate.connection.username">
             root
@@ -23,7 +23,7 @@
         </property>
 
         <!-- List of XML mapping files -->
-        <mapping resource="com/chetan/HibernateManyToMany/Employee.hbm.xml"/>
+        <mapping resource="com/chetan/HibernateMapMapping/Employee.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

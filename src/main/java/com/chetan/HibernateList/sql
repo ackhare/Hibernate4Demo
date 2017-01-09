@@ -1,0 +1,30 @@
+Define RDBMS Tables:
+
+Consider a situation where we need to store our employee records in EMPLOYEE table which will have
+ following structure:
+
+create table EMPLOYEE (
+   id INT NOT NULL auto_increment,
+   first_name VARCHAR(20) default NULL,
+   last_name  VARCHAR(20) default NULL,
+   salary     INT  default NULL,
+   PRIMARY KEY (id)
+);
+
+Further, assume each employee can have one or more certificate associated with him/her.
+
+ A List collection mapping needs an index column in the collection table.
+
+  The index column defines the position of the element in the collection.
+
+  So we will store certificate related information in a separate table which has following structure:
+
+create table CERTIFICATE (
+   id INT NOT NULL auto_increment,
+   certificate_name VARCHAR(30) default NULL,
+   idx INT default NULL,
+   employee_id INT default NULL,
+   PRIMARY KEY (id)
+);
+
+There will be one-to-many relationship between EMPLOYEE and CERTIFICATE objects.
