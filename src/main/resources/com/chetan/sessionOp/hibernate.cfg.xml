@@ -23,7 +23,8 @@
         <property name="hibernate.cache.use_query_cache">true</property>
         <!--<property name="net.sf.ehcache.configurationResourceName">myehcache.xml</property>-->
 
-        <mapping class="com.chetan.SecondLevelCacheDemo.Employee"/>
-        <mapping class="com.chetan.SecondLevelCacheDemo.Address"/>
+        <mapping class="com.chetan.sessionOp.SessionSave.Employee" />
+        <mapping class="com.chetan.sessionOp.SessionSave.Address" />
+
     </session-factory>
 </hibernate-configuration>

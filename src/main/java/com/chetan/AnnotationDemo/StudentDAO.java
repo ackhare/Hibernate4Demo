@@ -71,7 +71,7 @@ public class StudentDAO {
         Transaction transaction = null;
         try {
             session = HibernateConnector.getInstance().getSession();
-            System.out.println("session : "+session);
+            System.out.println("sessionOp : "+session);
             transaction = session.beginTransaction();
             session.save(student);
             transaction.commit();

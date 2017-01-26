@@ -1,0 +1,44 @@
+Hibernate Configuration loaded
+Hibernate serviceRegistry created
+2017-01-15_15:39:22.142 net.sf.ehcache.DiskStorePathManager main WARN  net.sf.ehcache.DiskStorePathManager - diskStorePath '/tmp/ehcache' is already used by an existing CacheManager either in the same VM or in a different process.
+The diskStore path for this CacheManager will be set to /tmp/ehcache/ehcache_auto_created6081027745821319717diskstore.
+To avoid this warning consider using the CacheManager factory methods to create a singleton CacheManager or specifying a separate ehcache configuration (ehcache.xml) for each CacheManager instance.
+Stats enabled=false
+Stats enabled=true
+***** 0 *****
+Fetch Count=0
+Second Level Hit Count=0
+Second Level Miss Count=0
+Second Level Put Count=0
+Hibernate: select employee0_.emp_id as emp_id1_1_0_, employee0_.emp_name as emp_name2_1_0_, employee0_.emp_salary as emp_sala3_1_0_, address1_.emp_id as emp_id1_0_1_, address1_.address_line1 as address_2_0_1_, address1_.city as city3_0_1_, address1_.zipcode as zipcode4_0_1_ from EMPLOYEE employee0_ left outer join ADDRESS address1_ on employee0_.emp_id=address1_.emp_id where employee0_.emp_id=?
+1:: Name=Pankaj, Zipcode=95129
+***** 1 *****
+Fetch Count=1
+Second Level Hit Count=0
+Second Level Miss Count=1
+Second Level Put Count=2
+2:: Name=Pankaj, Zipcode=95129
+***** 2 *****
+Fetch Count=1
+Second Level Hit Count=0
+Second Level Miss Count=1
+Second Level Put Count=2
+3:: Name=Pankaj, Zipcode=95129
+***** 3 *****
+Fetch Count=1
+Second Level Hit Count=2
+Second Level Miss Count=1
+Second Level Put Count=2
+Hibernate: select employee0_.emp_id as emp_id1_1_0_, employee0_.emp_name as emp_name2_1_0_, employee0_.emp_salary as emp_sala3_1_0_, address1_.emp_id as emp_id1_0_1_, address1_.address_line1 as address_2_0_1_, address1_.city as city3_0_1_, address1_.zipcode as zipcode4_0_1_ from EMPLOYEE employee0_ left outer join ADDRESS address1_ on employee0_.emp_id=address1_.emp_id where employee0_.emp_id=?
+4:: Name=Lisa, Zipcode=560100
+***** 4 *****
+Fetch Count=2
+Second Level Hit Count=2
+Second Level Miss Count=2
+Second Level Put Count=4
+5:: Name=Pankaj, Zipcode=95129
+***** 5 *****
+Fetch Count=2
+Second Level Hit Count=4
+Second Level Miss Count=2
+Second Level Put Count=4

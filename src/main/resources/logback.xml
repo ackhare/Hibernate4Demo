@@ -42,6 +42,7 @@
 
     <logger name="org.hibernate.type" level="INFO"/>
     <logger name="org.hibernate" level="ERROR"/>
+    <logger name="org.hibernate.stat.Statistics" level="INFO"/>
     <!--custom package change it according to your needds-->
     <logger name="com.chetan" level="ALL"/>
 

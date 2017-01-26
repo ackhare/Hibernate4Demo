@@ -4,7 +4,7 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.password">root</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/secondLevelCac1</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/manyToManyAnnotation</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
@@ -22,8 +22,7 @@
         <property name="hibernate.cache.use_second_level_cache">true</property>
         <property name="hibernate.cache.use_query_cache">true</property>
         <!--<property name="net.sf.ehcache.configurationResourceName">myehcache.xml</property>-->
-
-        <mapping class="com.chetan.SecondLevelCacheDemo.Employee"/>
-        <mapping class="com.chetan.SecondLevelCacheDemo.Address"/>
+        <mapping class="com.chetan.HibernateManyToManyAnnotation.Cart" />
+        <mapping class="com.chetan.HibernateManyToManyAnnotation.Item" />
     </session-factory>
 </hibernate-configuration>

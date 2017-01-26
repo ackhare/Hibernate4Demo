@@ -29,7 +29,7 @@ public class HibernateCacheExample {
         Employee emp1 = (Employee) session.load(Employee.class, new Long(1));
         printData(emp1, 2);
 
-        //Create new session
+        //Create new sessionOp
         Session newSession = sessionFactory.openSession();
         //Get employee with id=1, notice the logs for query
         Employee emp2 = (Employee) newSession.load(Employee.class, new Long(1));

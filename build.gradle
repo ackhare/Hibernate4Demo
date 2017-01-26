@@ -16,13 +16,33 @@ dependencies {
     compile 'org.hibernate:hibernate-core:4.3.6.Final'
 
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
+
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.1.7'
-    compile group: 'org.ehcache', name: 'ehcache', version: '3.2.0'
+    compile group: 'net.sf.ehcache', name: 'ehcache-core', version: '2.6.10'
+    compile group: 'org.hibernate', name: 'hibernate-ehcache', version: '4.3.5.Final'
     //used because eh-cache uses slfj inside
-    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
+//    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
 //    compile 'javax.servlet:javax.servlet-api:3.1.0'
 //    compile 'org.slf4j:slf4j-simple:1.7.7'
     compile 'org.javassist:javassist:3.15.0-GA'
     compile 'mysql:mysql-connector-java:5.1.31'
     compile 'commons-dbcp:commons-dbcp:1.4'
+//http://www.journaldev.com/3626/hibernate-validator-jsr303-example-tutorial
+    /*
+    Validation is a cross cutting task, so we should try to keep it apart from our business logic.
+    That’s why JSR303 and JSR349 provides specification for validating a bean by using annotations.
+    Hibernate Validator provides the reference implementation of both these bean validation specs.
+     */
+    compile 'javax.validation:validation-api:1.1.0.Final'
+    compile 'org.hibernate:hibernate-validator:5.1.1.Final'
+/*Hibernate Validator also requires an implementation of the Unified Expression Language (JSR 341) for
+evaluating dynamic expressions in constraint violation messages.
+
+If your application is running in a servlet container such as JBoss,
+it’s already provided. But if you are using it in a standalone application
+like my example project, you need to add them manually. Required dependencies are;
+*/
+    compile 'javax.el:javax.el-api:2.2.4'
+    compile 'org.glassfish.web:javax.el:2.2.4'
+
 }
