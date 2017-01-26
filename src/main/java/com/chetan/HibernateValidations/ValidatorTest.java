@@ -45,7 +45,7 @@ public class ValidatorTest {
 		
 		//XML Based validation
 		Configuration<?> config = Validation.byDefaultProvider().configure();
-		config.addMapping(new FileInputStream("employeeXMLValidation.xml"));
+		config.addMapping(new FileInputStream("/home/chetan/IdeaProjects/HibernateResourrces/src/main/resources/com/chetan/HibernateValidations/employeeXMLValidation.xml"));
 		ValidatorFactory validatorFactory1 = config.buildValidatorFactory();
 		Validator validator1 = validatorFactory1.getValidator();
 		
