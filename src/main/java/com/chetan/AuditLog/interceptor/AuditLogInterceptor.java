@@ -93,7 +93,10 @@ public class AuditLogInterceptor extends EmptyInterceptor{
 		Connection connection = sessionImpl.connection();
 		//return connection;
 		System.out.println("postFlush");
-		try{
+        System.out.println(inserts);
+        System.out.println(updates);
+        System.out.println(deletes);
+        try{
 		
 			for (Iterator it = inserts.iterator(); it.hasNext();) {
 				IAuditLog entity = (IAuditLog) it.next();
