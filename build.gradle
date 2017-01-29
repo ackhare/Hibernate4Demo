@@ -45,4 +45,7 @@ like my example project, you need to add them manually. Required dependencies ar
     compile 'javax.el:javax.el-api:2.2.4'
     compile 'org.glassfish.web:javax.el:2.2.4'
 
+    //db connection pool
+    compile 'org.hibernate:hibernate-c3p0:3.6.3.Final'
+
 }

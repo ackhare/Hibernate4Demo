@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class ParamValidationBean {
-
+//We can define constraints for method parameters too,
 	private String name;
 	
 	//using @NotNull at constructor rather than at field

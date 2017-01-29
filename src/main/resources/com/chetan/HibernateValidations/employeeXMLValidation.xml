@@ -4,7 +4,7 @@
 
 	<default-package>com.chetan.HibernateValidations.model</default-package>
 
-	<bean class="EmployeeXMLValidation" ignore-annotations="true">
+	<bean class="com.chetan.HibernateValidations.model.withoutAnnotationValidation.EmployeeXMLValidation" ignore-annotations="true">
 		<field name="id">
 			<constraint annotation="javax.validation.constraints.Min">
 				<element name="value">1</element>

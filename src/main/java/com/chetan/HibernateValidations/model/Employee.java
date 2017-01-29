@@ -9,13 +9,19 @@ import org.hibernate.validator.constraints.Email;
 
 public class Employee {
 
+	//This will be checked in main class through
+	//validationErrors = validator.validate(emp, EmpIdCheck.class);
+    //where the below group will be passed
 	@Min(value=1, groups=EmpIdCheck.class)
 	private int id;
 	
 	@NotNull(message="Name cannot be null")
 	@Size(min=5, max=30)
 	private String name;
-	
+//	@Email and @CreditCardNumber are hiberenate specfic
+
+
+
 	@Email
 	private String email;
 	
