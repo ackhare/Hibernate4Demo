@@ -19,6 +19,18 @@ public class Item {
         return id;
     }
 
+
+    @Id
+	@Column(name="item_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
+
+	@Column(name="item_price")
+	private double price;
+
+	@Column(name="item_desc")
+	private String description;
+
     public void setId(long id) {
         this.id = id;
     }
@@ -39,16 +51,4 @@ public class Item {
         this.description = description;
     }
 
-    @Id
-	@Column(name="item_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
-
-	@Column(name="item_price")
-	private double price;
-
-	@Column(name="item_desc")
-	private String description;
-
-// Getter Setter methods
 }

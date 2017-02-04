@@ -1,0 +1,33 @@
+https://www.tutorialspoint.com/hibernate/hibernate_many_to_one_mapping.htm
+
+A many-to-one association is the most common kind of association where an Object
+can be associated with multiple objects.
+For example a same address object can be associated with multiple employee objects.
+Define RDBMS Tables:
+
+Consider a situation where we need to store our employee records in EMPLOYEE
+table which will have following structure:
+
+create table EMPLOYEE (
+   id INT NOT NULL auto_increment,
+   first_name VARCHAR(20) default NULL,
+   last_name  VARCHAR(20) default NULL,
+   salary     INT  default NULL,
+   address    INT NOT NULL,
+   PRIMARY KEY (id)
+);
+
+Further, many employee can have same address,
+so this association can be presented using many-to-one association.
+ We will store address related information in a separate table which has following structure:
+
+create table ADDRESS (
+   id INT NOT NULL auto_increment,
+   street_name VARCHAR(40) default NULL,
+   city_name VARCHAR(40) default NULL,
+   state_name VARCHAR(40) default NULL,
+   zipcode VARCHAR(10) default NULL,
+   PRIMARY KEY (id)
+);
+
+Create both the RBDMS tables and keep them ready for the next implementation.

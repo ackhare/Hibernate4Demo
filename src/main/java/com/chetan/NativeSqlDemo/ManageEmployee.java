@@ -65,6 +65,7 @@ public class ManageEmployee {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
+            System.out.println("list Scalar -------------------------->");
             String sql = "SELECT first_name, salary FROM EMPLOYEE";
             SQLQuery query = session.createSQLQuery(sql);
             query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
