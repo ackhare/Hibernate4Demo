@@ -2,8 +2,11 @@
   <library name="Gradle: org.hibernate:hibernate-c3p0:3.6.3.Final">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/Could not resolve org.hibernate:hibernate-c3p0:3.6.3.Final." />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-c3p0/3.6.3.Final/c0208d30113edb8746fbca074ed7a29ea4a6325f/hibernate-c3p0-3.6.3.Final.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-c3p0/3.6.3.Final/b18f32f3e49d265959b1bdd7708903bc1803a2e6/hibernate-c3p0-3.6.3.Final-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
